@@ -1,0 +1,144 @@
+:root{
+  --azul:#0C41C4; /* Mozart */
+  --violeta:#680DBF; /* Beethoven */
+  --magenta:#E02088; /* Brahms */
+  --gris:#F5F7FB;
+  --texto:#1E2330;
+  --ok:#10B981;
+}
+
+*{box-sizing:border-box; margin:0; padding:0}
+html,body{height:100%}
+
+body{
+  font-family:Inter, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+  color:var(--texto);
+  background:
+    radial-gradient(1200px 1200px at 110% -10%, rgba(104,13,191,.15), transparent 50%),
+    radial-gradient(1000px 1000px at -10% 110%, rgba(12,65,196,.12), transparent 50%),
+    var(--gris);
+}
+
+/* ===== Estructura general ===== */
+.wrap{max-width:1100px; margin:0 auto; padding:28px 18px 80px}
+.header{display:flex; align-items:center; gap:16px; margin-bottom:24px}
+.logo{
+  width:48px; height:48px; object-fit:contain;
+  border-radius:8px; background:#fff;
+  box-shadow:0 4px 12px rgba(0,0,0,.08)
+}
+.title{
+  margin:0;
+  font-size:clamp(22px, 3.6vw, 36px);
+  line-height:1.1; font-weight:800;
+  background:linear-gradient(90deg, var(--azul), var(--violeta));
+  -webkit-background-clip:text; background-clip:text; color:transparent;
+}
+.pill{
+  display:inline-flex; align-items:center; gap:8px;
+  padding:6px 10px; border-radius:999px;
+  font-size:13px; font-weight:600;
+  background:linear-gradient(90deg,rgba(12,65,196,.12),rgba(104,13,191,.12));
+  color:#2a2f3a;
+}
+
+/* ===== Cartas y rejillas ===== */
+.card{
+  background:#fff;
+  border-radius:16px;
+  padding:18px;
+  box-shadow:0 8px 24px rgba(13,21,55,.08);
+  border:1px solid rgba(12,65,196,.08);
+}
+.grid{display:grid; gap:16px}
+.grid-2{grid-template-columns:1.15fr .85fr}
+@media (max-width:900px){.grid-2{grid-template-columns:1fr}}
+.gap-12{gap:12px}
+.ref-grid{grid-template-columns:repeat(auto-fit,minmax(220px,1fr)); gap:10px}
+
+/* ===== Tipografía ===== */
+h2{
+  font-size:clamp(18px, 2.4vw, 24px);
+  margin-bottom:10px; font-weight:800;
+}
+h3{font-size:18px; margin:18px 0 10px}
+p{margin:6px 0 12px; line-height:1.55}
+ol{margin-left:22px; line-height:1.6}
+ul{margin-left:20px; line-height:1.6}
+
+/* ===== Listas de notas ===== */
+.k-list{display:flex; flex-wrap:wrap; gap:8px}
+.k{
+  padding:8px 10px;
+  border-radius:10px;
+  background:#F3F5FF;
+  border:1px solid rgba(12,65,196,.15);
+  font-weight:700;
+}
+.k small{display:block; font-weight:600; opacity:.7}
+
+/* ===== Panel interactivo ===== */
+.panel{display:grid; gap:12px}
+.row{display:grid; gap:10px}
+@media (min-width:700px){ .row{grid-template-columns:1fr 1fr 1fr} }
+label{font-size:13px; font-weight:700; color:#30374a}
+select,input{
+  width:100%;
+  padding:12px 12px;
+  border-radius:12px;
+  border:1px solid #D7DBE8;
+  background:#fff;
+  font:600 14px/1.2 Inter, sans-serif;
+}
+
+/* ===== Resultado ===== */
+.result{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:16px;
+  align-items:start;
+}
+@media (max-width:780px){
+  .result{grid-template-columns:1fr}
+}
+
+.big{font-size:32px; font-weight:800; margin-bottom:4px}
+.badges{display:flex; flex-wrap:wrap; gap:8px}
+.badge{
+  padding:6px 10px;
+  background:#f0f3ff;
+  border:1px dashed rgba(12,65,196,.25);
+  border-radius:999px;
+  font-weight:700;
+}
+
+.sig-card{display:grid; gap:6px}
+.sig-card b{font-size:14px}
+
+.svgbox{
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  width:100%;
+  background:linear-gradient(180deg, #fff, #f9faff);
+  border:1px solid #e6e8f3;
+  border-radius:16px;
+  padding:12px;
+  box-shadow: inset 0 1px 0 rgba(255,255,255,.6);
+}
+.legend{font-size:12px; color:#4b5160; margin-top:4px; text-align:center}
+
+/* ===== Colores especiales ===== */
+.card--sharps{background:linear-gradient(90deg, rgba(12,65,196,.06), rgba(104,13,191,.06))}
+.card--flats{background:linear-gradient(90deg, rgba(224,32,136,.06), rgba(104,13,191,.06))}
+
+/* ===== Utilidades ===== */
+.mt-16{margin-top:16px}
+.p-16{padding:16px}
+.footer{
+  margin-top:24px;
+  text-align:center;
+  font-size:12px;
+  color:#626b7a;
+}
+.footer a{color:var(--violeta); font-weight:700; text-decoration:none}

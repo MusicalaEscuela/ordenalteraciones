@@ -1,0 +1,135 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Orden de Sostenidos y Bemoles · Musicala</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+  <script defer src="app.js"></script>
+</head>
+<body>
+  <div class="wrap">
+    <header class="header">
+      <img src="logo.png" alt="Logo Musicala" class="logo" onerror="this.style.visibility='hidden'" />
+      <div>
+        <h1 class="title">Orden de Sostenidos y Bemoles — Escalas y Armaduras</h1>
+        <div class="pill">Teoría musical clara, con ejemplos y una armadura interactiva ✨</div>
+      </div>
+    </header>
+
+    <section class="grid grid-2">
+      <article class="card">
+        <h2>Conceptos clave (rápido y al grano)</h2>
+        <p><b>Armadura de clave</b>: los sostenidos (♯) o bemoles (♭) que aparecen al inicio del pentagrama y se aplican a <i>todas</i> las notas de ese nombre durante la pieza, salvo indicación contraria.</p>
+
+        <div class="grid gap-12">
+          <div class="card card--sharps">
+            <h3>Orden de los sostenidos (♯)</h3>
+            <div class="k-list">
+              <div class="k">Fa♯</div><div class="k">Do♯</div><div class="k">Sol♯</div><div class="k">Re♯</div><div class="k">La♯</div><div class="k">Mi♯</div><div class="k">Si♯</div>
+            </div>
+            <small class="legend">Regla mnemotécnica: <b>Fa</b> <b>Do</b>y <b>Sol</b> <b>Re</b>almente <b>La</b> <b>Mi</b>ra <b>Si</b>empre (F–C–G–D–A–E–B).</small>
+          </div>
+
+          <div class="card card--flats">
+            <h3>Orden de los bemoles (♭)</h3>
+            <div class="k-list">
+              <div class="k">Si♭</div><div class="k">Mi♭</div><div class="k">La♭</div><div class="k">Re♭</div><div class="k">Sol♭</div><div class="k">Do♭</div><div class="k">Fa♭</div>
+            </div>
+            <small class="legend">Regla mnemotécnica: <b>Si</b> <b>Mi</b> <b>La</b> <b>Re</b>cuerda <b>Sol</b>o <b>Do</b>s <b>Fa</b>ses (B–E–A–D–G–C–F).</small>
+          </div>
+        </div>
+
+        <h3>Círculo de quintas (idea base)</h3>
+        <p>En <b>quintas ascendentes</b> (Do→Sol→Re→La→...), sumas un ♯ siguiendo el orden. En <b>quintas descendentes</b> (Do→Fa→Si♭→Mi♭→...), sumas un ♭ siguiendo su orden. Mayor y menor <b>relativas</b> comparten armadura.</p>
+      </article>
+
+      <aside class="card panel">
+        <h2>Explora la armadura</h2>
+        <div class="row">
+          <div>
+            <label for="modo">Modo</label>
+            <select id="modo">
+              <option value="M" selected>Mayor</option>
+              <option value="m">Menor</option>
+            </select>
+          </div>
+          <div>
+            <label for="tonica">Tónica</label>
+            <select id="tonica"></select>
+          </div>
+          <div>
+            <label for="clave">Clave</label>
+            <select id="clave">
+              <option value="G" selected>Sol (Violín)</option>
+              <option value="F">Fa (Bajo)</option>
+              <option value="C">Do (Alto/Tenor)</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="card p-16">
+          <div class="result">
+            <div>
+              <div id="label-tonalidad" class="big">Do Mayor</div>
+              <div class="badges" id="detalle"></div>
+              <div class="sig-card">
+                <b>Accidentales en la armadura:</b>
+                <div id="lista"></div>
+              </div>
+            </div>
+
+            <div class="svgbox">
+              <svg id="staff" viewBox="0 0 420 130" width="100%" height="auto" aria-label="Armadura de clave render">
+                <g id="staff-lines" stroke="#9aa3b2" stroke-width="1">
+                  <line x1="12" y1="30" x2="408" y2="30"/>
+                  <line x1="12" y1="46" x2="408" y2="46"/>
+                  <line x1="12" y1="62" x2="408" y2="62"/>
+                  <line x1="12" y1="78" x2="408" y2="78"/>
+                  <line x1="12" y1="94" x2="408" y2="94"/>
+                </g>
+                <g id="clef"></g>
+                <g id="acc"></g>
+              </svg>
+              <div class="legend" id="legend"></div>
+            </div>
+          </div>
+        </div>
+      </aside>
+    </section>
+
+    <section class="card mt-16">
+      <h2>Cómo saber la tonalidad por su armadura</h2>
+      <ol>
+        <li><b>Con sostenidos</b>: toma el <i>último</i> ♯ de la armadura y sube medio tono → <b>Mayor</b>. Ej.: Fa♯ Do♯ → último ♯ = Do♯ → +½ tono = <b>Re Mayor</b>.</li>
+        <li><b>Con bemoles</b>: toma el <i>penúltimo</i> ♭ → <b>Mayor</b>. Ej.: Si♭ Mi♭ La♭ → penúltimo = <b>Mi♭ Mayor</b>. (Con un solo ♭, es <b>Fa Mayor</b>).</li>
+        <li>La <b>relativa menor</b> está <i>tres semitonos abajo</i> de la Mayor. Ej.: Do Mayor → La menor.</li>
+      </ol>
+    </section>
+
+    <section class="grid mt-16">
+      <article class="card">
+        <h2>Tabla de referencia (Mayor ↔ menor)</h2>
+        <div class="grid ref-grid">
+          <div class="card"><b>♯ (1–7)</b><p>Sol/mi, Re/si, La/fa♯, Mi/do♯, Si/sol♯, Fa♯/re♯, Do♯/la♯</p></div>
+          <div class="card"><b>♭ (1–7)</b><p>Fa/re, Si♭/sol, Mi♭/do, La♭/fa, Re♭/si♭, Sol♭/mi♭, Do♭/la♭</p></div>
+          <div class="card"><b>Sin armadura</b><p>Do Mayor / La menor</p></div>
+        </div>
+      </article>
+      <aside class="card">
+        <h2>Tips express</h2>
+        <ul>
+          <li>El orden de ♯ y ♭ <b>no cambia</b>; solo crece hacia la derecha.</li>
+          <li>Mayor y menor <b>relativas</b> comparten armadura (Do Mayor = La menor).</li>
+          <li>En <b>modos menores</b> pueden aparecer ♯/♭ accidentales por la <i>melódica/armónica</i>, pero la <b>armadura</b> se mantiene.</li>
+        </ul>
+      </aside>
+    </section>
+
+    <footer class="footer">Página didáctica para Musicala · Hecha con ♥</footer>
+  </div>
+</body>
+</html>
